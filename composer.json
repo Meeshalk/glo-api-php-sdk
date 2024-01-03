@@ -1,0 +1,35 @@
+{
+    "name": "meeshalk/glo-api-php-sdk",
+    "description": "A PHP SDK to use Glo Global ERS Web Services API",
+    "keywords": ["Glo", "Global", "SDK", "ERS", "Topup", "Service", "API", "SOAP"],
+    "type": "library",
+    "require": {
+        "php": ">=7.1",
+        "phpro/soap-client": "^3.1",
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.6",
+        "phpunit/phpunit": "^10.5",
+        "psy/psysh": "^0.12.0"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Meeshalk\\GloERSWebServiceSdk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Meeshalk\\GloERSWebServiceSdk\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Meeshal kumar",
+            "email": "meeshal1994@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
