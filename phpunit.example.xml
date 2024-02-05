@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="Services Tests">
+            <directory>tests/ServicesTest</directory>
+        </testsuite>
+    </testsuites>
+    <source restrictDeprecations="true">
+        <include>
+            <directory>src</directory>
+        </include>
+        <exclude>
+            <directory>vendor</directory>
+        </exclude>
+    </source>
+    <php>
+        <env name="APP_ENV" value="testing" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />
+        <env name="GLO_MSISDN" value="" />
+        <env name="GLO_PASSWORD" value="" />
+        <env name="GLO_USERID" value="" />
+        <env name="GLO_USERTYPE" value="" />
+        <env name="GLO_SELLER_ACCOUNT_TYPE" value="" />
+    </php>
+</phpunit>
