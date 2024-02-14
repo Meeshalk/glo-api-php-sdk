@@ -21,14 +21,20 @@
         public static function factory(
             string $wsdl, LoggerInterface $logger = null
         ): GloERSClient {
-            if ($logger === null) {
-                $logger = new Logger('http',
-                    [new RotatingFileHandler('logs/mono.log')]);
+            // enable logger only on local
+            if (getenv('APP_ENV') == 'local'){
+                if ($logger === null) {
+                    $logger = new Logger('http',
+                        [new RotatingFileHandler('logs/mono.log')]);
+                }
+                $loggerPlugin = new LoggerPlugin($logger);
+                $middlewares = [$loggerPlugin];
+            }else{
+                $middlewares = [];
             }
-            $loggerPlugin = new LoggerPlugin($logger);
 
             $transport = Psr18Transport::createForClient(
-                new PluginClient(new Client(), [$loggerPlugin])
+                new PluginClient(new Client(), $middlewares)
             );
 
             $engine = DefaultEngineFactory::create(
