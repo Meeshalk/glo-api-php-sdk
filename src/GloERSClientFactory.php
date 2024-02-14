@@ -22,7 +22,7 @@
             string $wsdl, LoggerInterface $logger = null
         ): GloERSClient {
             // enable logger only on local
-            if (getenv('APP_ENV') == 'local'){
+            if (getenv('APP_ENV') == 'local' || getenv('APP_ENV') == 'testing'){
                 if ($logger === null) {
                     $logger = new Logger('http',
                         [new RotatingFileHandler('logs/mono.log')]);
